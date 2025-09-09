@@ -238,8 +238,7 @@ static void nvm_erase(void)
 
     uart_printf("ERASE STARTING!!!!\r\n");
 
-    //err = qspi_op_flash_erase_sectors((uint8_t *)SECONDARY_IMAGE_START_ADDRESS, SECONDARY_IMAGE_NUM_SECTORS);
-    err = qspi_op_chip_erase();
+    err = qspi_op_flash_erase_sectors((uint8_t *)SECONDARY_IMAGE_START_ADDRESS, SECONDARY_IMAGE_NUM_SECTORS);
     fsp_error_check(err);
 
     uart_printf("ERASE FINISHED\r\n");

@@ -8,6 +8,21 @@
 #include "r_qspi.h"
 #include "qspi_operations.h"
 
+
+
+
+static SemaphoreHandle_t    write_status_semaphore = NULL;
+static bool                 flash_op_in_progress = false;
+static spi_flash_status_t   flash_write_status;
+
+
+static void wait_for_flash_op_complete(void)
+{
+    flash_op_in_progress = true;
+    xSemaphoreTake(write_status_semaphore, portMAX_DELAY);
+}
+
+
 /*******************************************************************************************************************//**
  *  @brief       Close QSPI module
  *  @param[IN]   spi_protocol mode
@@ -71,21 +86,29 @@ fsp_err_t qspi_op_get_flash_status(void)
     return err;
 }
 
-void qspi_op_init(void)
+SemaphoreHandle_t  qspi_op_init(void)
 {
        fsp_err_t err                                  = FSP_SUCCESS;
 
        uint8_t   data_sreg[SREG_SIZE]                 = STATUS_REG_PAYLOAD;
 
-       /* Banner information */
+       write_status_semaphore = xSemaphoreCreateBinary();
 
+       if(write_status_semaphore == NULL)
        {
-           /* open QSPI in extended SPI mode */
-           err = R_QSPI_Open(&g_qspi0_ctrl, &g_qspi0_cfg);
-           if (FSP_SUCCESS != err)
-           {
-               while(1);
-           }
+           while(1);
+       }else
+       {
+          // xSemaphoreGive(write_status_semaphore);
+           //xSemaphoreTake(write_status_semaphore, portMAX_DELAY);
+       }
+
+
+       /* open QSPI in extended SPI mode */
+       err = R_QSPI_Open(&g_qspi0_ctrl, &g_qspi0_cfg);
+       if (FSP_SUCCESS != err)
+       {
+           while(1);
        }
 
        /* write enable for further operations */
@@ -137,20 +160,17 @@ void qspi_op_init(void)
            }
        }
 
+       return write_status_semaphore;
+
 }
 
 fsp_err_t qspi_op_chip_erase(void)
 {
     fsp_err_t err = FSP_SUCCESS;
-    spi_flash_status_t  write_status;
 
     err = R_QSPI_Erase(&g_qspi0_ctrl, (uint8_t *)0, SPI_FLASH_ERASE_SIZE_CHIP_ERASE);
 
-    do
-   {
-       R_QSPI_StatusGet(&g_qspi0_ctrl, &write_status);
-       vTaskDelay(pdMS_TO_TICKS(100));
-   }while(write_status.write_in_progress);
+    wait_for_flash_op_complete();
 
     return err;
 }
@@ -176,6 +196,8 @@ fsp_err_t qspi_op_flash_erase_sectors(uint8_t *start_address, uint16_t num_secto
             }
           }
 
+         wait_for_flash_op_complete();
+
      }
 
     return err;
@@ -185,16 +207,27 @@ fsp_err_t qspi_op_flash_erase_sectors(uint8_t *start_address, uint16_t num_secto
 fsp_err_t qspi_op_flash_write_data(uint8_t *addr, uint8_t *data, uint32_t bytes)
 {
     fsp_err_t err =     FSP_SUCCESS;
-    spi_flash_status_t  write_status;
 
     err = R_QSPI_Write(&g_qspi0_ctrl, data, addr, bytes);
 
-    do
-    {
-        R_QSPI_StatusGet(&g_qspi0_ctrl, &write_status);
-    }while(write_status.write_in_progress);
+    wait_for_flash_op_complete();
 
     return err;
+}
+
+
+void vApplicationIdleHook(void)
+{
+    if(flash_op_in_progress)
+    {
+        R_QSPI_StatusGet(&g_qspi0_ctrl, &flash_write_status);
+
+        if(!flash_write_status.write_in_progress)
+        {
+            flash_op_in_progress = false;
+            xSemaphoreGive(write_status_semaphore);
+        }
+    }
 }
 
 

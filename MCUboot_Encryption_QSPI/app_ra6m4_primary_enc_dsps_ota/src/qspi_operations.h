@@ -7,7 +7,7 @@
 #ifndef QSPI_OPERATIONS_H_
 #define QSPI_OPERATIONS_H_
 
-void qspi_op_init(void);
+SemaphoreHandle_t  qspi_op_init(void);
 
 void qspi_op_deinit(const spi_flash_protocol_t spi_protocol_mode);
 

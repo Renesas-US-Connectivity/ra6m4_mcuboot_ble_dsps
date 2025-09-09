@@ -101,7 +101,7 @@ main-build: app_ra6m4_primary_enc_dsps_ota.elf secondary-outputs
 
 # Tool invocations
 app_ra6m4_primary_enc_dsps_ota.elf: $(OBJS) $(USER_OBJS) $(LINKER_SCRIPT)
-	$(file > app_ra6m4_primary_enc_dsps_ota.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O1 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -gdwarf-4 -T "fsp.ld" -Xlinker --gc-sections -L "C:\\repos\\Ra6m4_dsps_OTA\\MCUboot_Encryption_QSPI\\app_ra6m4_primary_enc_dsps_ota/script" -Wl,-Map,"app_ra6m4_primary_enc_dsps_ota.map" --specs=nano.specs --specs=rdimon.specs -o "app_ra6m4_primary_enc_dsps_ota.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
+	$(file > app_ra6m4_primary_enc_dsps_ota.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O1 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -gdwarf-4 -T "fsp.ld" -Xlinker --gc-sections -L "C:\\repos\\ra6m4_mcuboot_ble_dsps\\MCUboot_Encryption_QSPI\\app_ra6m4_primary_enc_dsps_ota/script" -Wl,-Map,"app_ra6m4_primary_enc_dsps_ota.map" --specs=nano.specs --specs=rdimon.specs -o "app_ra6m4_primary_enc_dsps_ota.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
 	@echo Building target: $@ && arm-none-eabi-gcc @"app_ra6m4_primary_enc_dsps_ota.elf.in"
 app_ra6m4_primary_enc_dsps_ota.srec: app_ra6m4_primary_enc_dsps_ota.elf
 	arm-none-eabi-objcopy -O srec "app_ra6m4_primary_enc_dsps_ota.elf"  "app_ra6m4_primary_enc_dsps_ota.srec"

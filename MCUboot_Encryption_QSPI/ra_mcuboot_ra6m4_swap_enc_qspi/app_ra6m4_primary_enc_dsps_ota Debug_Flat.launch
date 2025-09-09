@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.renesas.cdt.launch.dsf.gdbremote.launchConfigurationType">
     <booleanAttribute key=".setStepMode" value="false"/>
-    <stringAttribute key="com.renesas.cdt.core.additionalServerArgs" value=""/>
+    <stringAttribute key="com.renesas.cdt.core.additionalServerArgs" value="-singlerun -rtos GDBServer/RTOSPlugin_FreeRTOS"/>
     <intAttribute key="com.renesas.cdt.core.connectionTimeout" value="30"/>
     <stringAttribute key="com.renesas.cdt.core.initCommands" value=""/>
     <stringAttribute key="com.renesas.cdt.core.ipAddress" value="localhost"/>
@@ -100,7 +100,7 @@
     <intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.delay" value="3"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.doHalt" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.doReset" value="false"/>
-    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value="C:\repos\Ra6m4_dsps_OTA\MCUboot_Encryption_QSPI\app_ra6m4_primary_enc_dsps_ota\Debug\app_ra6m4_primary_enc_dsps_ota.elf"/>
+    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value="C:\repos\ra6m4_mcuboot_ble_dsps\MCUboot_Encryption_QSPI\app_ra6m4_primary_enc_dsps_ota\Debug\app_ra6m4_primary_enc_dsps_ota.elf"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageOffset" value=""/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.initCommands" value=""/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadImage" value="false"/>
@@ -111,7 +111,7 @@
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setResume" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setStopAt" value="true"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.stopAt" value="main"/>
-    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName" value="C:\repos\Ra6m4_dsps_OTA\MCUboot_Encryption_QSPI\app_ra6m4_primary_enc_dsps_ota\Debug\app_ra6m4_primary_enc_dsps_ota.elf"/>
+    <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName" value="C:\repos\ra6m4_mcuboot_ble_dsps\MCUboot_Encryption_QSPI\app_ra6m4_primary_enc_dsps_ota\Debug\app_ra6m4_primary_enc_dsps_ota.elf"/>
     <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsOffset" value=""/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForImage" value="false"/>
     <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForSymbols" value="false"/>
