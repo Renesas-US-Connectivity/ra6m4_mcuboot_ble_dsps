@@ -1,0 +1,44 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../ra_gen/blinky_thread.c \
+../ra_gen/common_data.c \
+../ra_gen/dsps_downloader_thread.c \
+../ra_gen/hal_data.c \
+../ra_gen/main.c \
+../ra_gen/pin_data.c \
+../ra_gen/vector_data.c 
+
+C_DEPS += \
+./ra_gen/blinky_thread.d \
+./ra_gen/common_data.d \
+./ra_gen/dsps_downloader_thread.d \
+./ra_gen/hal_data.d \
+./ra_gen/main.d \
+./ra_gen/pin_data.d \
+./ra_gen/vector_data.d 
+
+OBJS += \
+./ra_gen/blinky_thread.o \
+./ra_gen/common_data.o \
+./ra_gen/dsps_downloader_thread.o \
+./ra_gen/hal_data.o \
+./ra_gen/main.o \
+./ra_gen/pin_data.o \
+./ra_gen/vector_data.o 
+
+SREC += \
+app_ra6m4_primary_enc_dsps_ota.srec 
+
+MAP += \
+app_ra6m4_primary_enc_dsps_ota.map 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+ra_gen/%.o: ../ra_gen/%.c
+	$(file > $@.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O1 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -gdwarf-4 -D_RA_CORE=CM33 -D_RENESAS_RA_ -D_RA_BOOT_IMAGE -D_RA_ORDINAL=1 -I"C:/repos/Ra6m4_dsps_OTA/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/src" -I"C:/repos/Ra6m4_dsps_OTA/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc" -I"C:/repos/Ra6m4_dsps_OTA/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api" -I"C:/repos/Ra6m4_dsps_OTA/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/instances" -I"C:/repos/Ra6m4_dsps_OTA/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/src/rm_freertos_port" -I"C:/repos/Ra6m4_dsps_OTA/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include" -I"C:/repos/Ra6m4_dsps_OTA/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen" -I"C:/repos/Ra6m4_dsps_OTA/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_cfg/fsp_cfg/bsp" -I"C:/repos/Ra6m4_dsps_OTA/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_cfg/fsp_cfg" -I"C:/repos/Ra6m4_dsps_OTA/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_cfg/aws" -I"C:/repos/Ra6m4_dsps_OTA/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_cfg/driver" -I"." -I"C:/repos/Ra6m4_dsps_OTA/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/arm/CMSIS_6/CMSIS/Core/Include" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" -x c "$<")
+	@echo Building file: $< && arm-none-eabi-gcc @"$@.in"
+
