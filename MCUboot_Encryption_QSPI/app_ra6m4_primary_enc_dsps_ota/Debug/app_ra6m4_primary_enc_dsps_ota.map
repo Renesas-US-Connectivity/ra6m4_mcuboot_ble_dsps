@@ -2757,77 +2757,77 @@ LOAD linker stubs
  .comment       0x00000044       0x45 ./ra/aws/FreeRTOS/FreeRTOS/Source/tasks.o
  .comment       0x00000044       0x45 ./ra/aws/FreeRTOS/FreeRTOS/Source/timers.o
 
-.debug_info     0x00000000    0x43a06
+.debug_info     0x00000000    0x43a10
  .debug_info    0x00000000     0x115f ./src/blinky_thread_entry.o
  .debug_info    0x0000115f     0x1090 ./src/dsps_downloader_thread_entry.o
  .debug_info    0x000021ef     0x1275 ./src/hal_entry.o
  .debug_info    0x00003464     0x11b7 ./src/qspi_operations.o
  .debug_info    0x0000461b      0x694 ./src/ring_buffer.o
- .debug_info    0x00004caf     0x405a ./src/uart_ble.o
- .debug_info    0x00008d09      0x437 ./ra_gen/blinky_thread.o
- .debug_info    0x00009140     0x155b ./ra_gen/common_data.o
- .debug_info    0x0000a69b     0x425a ./ra_gen/dsps_downloader_thread.o
- .debug_info    0x0000e8f5       0xa5 ./ra_gen/hal_data.o
- .debug_info    0x0000e99a      0x6c6 ./ra_gen/main.o
- .debug_info    0x0000f060      0xa34 ./ra_gen/pin_data.o
- .debug_info    0x0000fa94      0x802 ./ra_gen/vector_data.o
- .debug_info    0x00010296     0x4e1c ./ra/fsp/src/rm_freertos_port/port.o
- .debug_info    0x000150b2     0xae99 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
- .debug_info    0x0001ff4b     0x2c5d ./ra/fsp/src/r_qspi/r_qspi.o
- .debug_info    0x00022ba8     0x7041 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_info    0x00029be9     0x61c8 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_info    0x0002fdb1      0x955 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_info    0x00030706      0x1d9 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_info    0x000308df     0x14c4 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_info    0x00031da3       0xb1 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
- .debug_info    0x00031e54     0x2195 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_info    0x00033fe9     0x408c ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_info    0x00038075      0x14b ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_info    0x000381c0      0x17a ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_info    0x0003833a     0x1195 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
- .debug_info    0x000394cf       0xa4 ./ra/board/ra6m4_ek/board_init.o
- .debug_info    0x00039573      0x7a1 ./ra/board/ra6m4_ek/board_leds.o
- .debug_info    0x00039d14      0x73e ./ra/aws/FreeRTOS/FreeRTOS/Source/portable/MemMang/heap_4.o
- .debug_info    0x0003a452      0x2e7 ./ra/aws/FreeRTOS/FreeRTOS/Source/list.o
- .debug_info    0x0003a739     0x33aa ./ra/aws/FreeRTOS/FreeRTOS/Source/queue.o
- .debug_info    0x0003dae3     0x3e95 ./ra/aws/FreeRTOS/FreeRTOS/Source/tasks.o
- .debug_info    0x00041978     0x208e ./ra/aws/FreeRTOS/FreeRTOS/Source/timers.o
+ .debug_info    0x00004caf     0x4064 ./src/uart_ble.o
+ .debug_info    0x00008d13      0x437 ./ra_gen/blinky_thread.o
+ .debug_info    0x0000914a     0x155b ./ra_gen/common_data.o
+ .debug_info    0x0000a6a5     0x425a ./ra_gen/dsps_downloader_thread.o
+ .debug_info    0x0000e8ff       0xa5 ./ra_gen/hal_data.o
+ .debug_info    0x0000e9a4      0x6c6 ./ra_gen/main.o
+ .debug_info    0x0000f06a      0xa34 ./ra_gen/pin_data.o
+ .debug_info    0x0000fa9e      0x802 ./ra_gen/vector_data.o
+ .debug_info    0x000102a0     0x4e1c ./ra/fsp/src/rm_freertos_port/port.o
+ .debug_info    0x000150bc     0xae99 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+ .debug_info    0x0001ff55     0x2c5d ./ra/fsp/src/r_qspi/r_qspi.o
+ .debug_info    0x00022bb2     0x7041 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_info    0x00029bf3     0x61c8 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_info    0x0002fdbb      0x955 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_info    0x00030710      0x1d9 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_info    0x000308e9     0x14c4 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_info    0x00031dad       0xb1 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_info    0x00031e5e     0x2195 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_info    0x00033ff3     0x408c ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_info    0x0003807f      0x14b ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_info    0x000381ca      0x17a ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_info    0x00038344     0x1195 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_info    0x000394d9       0xa4 ./ra/board/ra6m4_ek/board_init.o
+ .debug_info    0x0003957d      0x7a1 ./ra/board/ra6m4_ek/board_leds.o
+ .debug_info    0x00039d1e      0x73e ./ra/aws/FreeRTOS/FreeRTOS/Source/portable/MemMang/heap_4.o
+ .debug_info    0x0003a45c      0x2e7 ./ra/aws/FreeRTOS/FreeRTOS/Source/list.o
+ .debug_info    0x0003a743     0x33aa ./ra/aws/FreeRTOS/FreeRTOS/Source/queue.o
+ .debug_info    0x0003daed     0x3e95 ./ra/aws/FreeRTOS/FreeRTOS/Source/tasks.o
+ .debug_info    0x00041982     0x208e ./ra/aws/FreeRTOS/FreeRTOS/Source/timers.o
 
-.debug_abbrev   0x00000000     0x52b5
+.debug_abbrev   0x00000000     0x531b
  .debug_abbrev  0x00000000      0x325 ./src/blinky_thread_entry.o
  .debug_abbrev  0x00000325      0x2dd ./src/dsps_downloader_thread_entry.o
  .debug_abbrev  0x00000602      0x157 ./src/hal_entry.o
  .debug_abbrev  0x00000759      0x201 ./src/qspi_operations.o
  .debug_abbrev  0x0000095a      0x237 ./src/ring_buffer.o
- .debug_abbrev  0x00000b91      0x5b1 ./src/uart_ble.o
- .debug_abbrev  0x00001142      0x1d8 ./ra_gen/blinky_thread.o
- .debug_abbrev  0x0000131a      0x204 ./ra_gen/common_data.o
- .debug_abbrev  0x0000151e      0x33f ./ra_gen/dsps_downloader_thread.o
- .debug_abbrev  0x0000185d       0x62 ./ra_gen/hal_data.o
- .debug_abbrev  0x000018bf      0x1e9 ./ra_gen/main.o
- .debug_abbrev  0x00001aa8       0xf6 ./ra_gen/pin_data.o
- .debug_abbrev  0x00001b9e       0xba ./ra_gen/vector_data.o
- .debug_abbrev  0x00001c58      0x3ff ./ra/fsp/src/rm_freertos_port/port.o
- .debug_abbrev  0x00002057      0x5fa ./ra/fsp/src/r_sci_uart/r_sci_uart.o
- .debug_abbrev  0x00002651      0x3e8 ./ra/fsp/src/r_qspi/r_qspi.o
- .debug_abbrev  0x00002a39      0x440 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_abbrev  0x00002e79      0x3d4 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_abbrev  0x0000324d      0x183 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_abbrev  0x000033d0       0xfd ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_abbrev  0x000034cd      0x254 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_abbrev  0x00003721       0x5e ./ra/fsp/src/bsp/mcu/all/bsp_io.o
- .debug_abbrev  0x0000377f      0x28c ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_abbrev  0x00003a0b      0x25a ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_abbrev  0x00003c65       0xcc ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_abbrev  0x00003d31       0xf9 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_abbrev  0x00003e2a      0x2dd ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
- .debug_abbrev  0x00004107       0x5c ./ra/board/ra6m4_ek/board_init.o
- .debug_abbrev  0x00004163       0xc4 ./ra/board/ra6m4_ek/board_leds.o
- .debug_abbrev  0x00004227      0x2d3 ./ra/aws/FreeRTOS/FreeRTOS/Source/portable/MemMang/heap_4.o
- .debug_abbrev  0x000044fa      0x106 ./ra/aws/FreeRTOS/FreeRTOS/Source/list.o
- .debug_abbrev  0x00004600      0x413 ./ra/aws/FreeRTOS/FreeRTOS/Source/queue.o
- .debug_abbrev  0x00004a13      0x470 ./ra/aws/FreeRTOS/FreeRTOS/Source/tasks.o
- .debug_abbrev  0x00004e83      0x432 ./ra/aws/FreeRTOS/FreeRTOS/Source/timers.o
+ .debug_abbrev  0x00000b91      0x617 ./src/uart_ble.o
+ .debug_abbrev  0x000011a8      0x1d8 ./ra_gen/blinky_thread.o
+ .debug_abbrev  0x00001380      0x204 ./ra_gen/common_data.o
+ .debug_abbrev  0x00001584      0x33f ./ra_gen/dsps_downloader_thread.o
+ .debug_abbrev  0x000018c3       0x62 ./ra_gen/hal_data.o
+ .debug_abbrev  0x00001925      0x1e9 ./ra_gen/main.o
+ .debug_abbrev  0x00001b0e       0xf6 ./ra_gen/pin_data.o
+ .debug_abbrev  0x00001c04       0xba ./ra_gen/vector_data.o
+ .debug_abbrev  0x00001cbe      0x3ff ./ra/fsp/src/rm_freertos_port/port.o
+ .debug_abbrev  0x000020bd      0x5fa ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+ .debug_abbrev  0x000026b7      0x3e8 ./ra/fsp/src/r_qspi/r_qspi.o
+ .debug_abbrev  0x00002a9f      0x440 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_abbrev  0x00002edf      0x3d4 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_abbrev  0x000032b3      0x183 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_abbrev  0x00003436       0xfd ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_abbrev  0x00003533      0x254 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_abbrev  0x00003787       0x5e ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_abbrev  0x000037e5      0x28c ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_abbrev  0x00003a71      0x25a ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_abbrev  0x00003ccb       0xcc ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_abbrev  0x00003d97       0xf9 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_abbrev  0x00003e90      0x2dd ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_abbrev  0x0000416d       0x5c ./ra/board/ra6m4_ek/board_init.o
+ .debug_abbrev  0x000041c9       0xc4 ./ra/board/ra6m4_ek/board_leds.o
+ .debug_abbrev  0x0000428d      0x2d3 ./ra/aws/FreeRTOS/FreeRTOS/Source/portable/MemMang/heap_4.o
+ .debug_abbrev  0x00004560      0x106 ./ra/aws/FreeRTOS/FreeRTOS/Source/list.o
+ .debug_abbrev  0x00004666      0x413 ./ra/aws/FreeRTOS/FreeRTOS/Source/queue.o
+ .debug_abbrev  0x00004a79      0x470 ./ra/aws/FreeRTOS/FreeRTOS/Source/tasks.o
+ .debug_abbrev  0x00004ee9      0x432 ./ra/aws/FreeRTOS/FreeRTOS/Source/timers.o
 
 .debug_loc      0x00000000     0xc6b4
  .debug_loc     0x00000000      0x218 ./src/blinky_thread_entry.o
