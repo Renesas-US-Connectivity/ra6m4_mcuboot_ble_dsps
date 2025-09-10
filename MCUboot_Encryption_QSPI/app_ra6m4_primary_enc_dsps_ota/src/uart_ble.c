@@ -15,6 +15,9 @@
 
 #define PRINTF_SZ (512)
 
+#define FRDR_TDAT_MASK_9BITS                                (0x01FFU)
+#define SCI_UART_SSR_FIFO_DR_RDF                            (0x41)
+
 
 typedef enum {
     UART_STATE_WAIT_FOR_HEADER,
@@ -167,16 +170,16 @@ static void uart_fsm_process(uint8_t data)
  *
  * @note This function is typically registered with the UART driver as the callback handler.
  */
-void uart_dsps_cb(uart_callback_args_t * p_args)
+static void uart_dsps_cb(uart_event_t event, uint32_t data)
 {
-    switch(p_args->event)
+    switch(event)
     {
         case UART_EVENT_RX_COMPLETE:
             break;
         case UART_EVENT_TX_COMPLETE:
             break;
         case UART_EVENT_RX_CHAR:
-            uart_fsm_process((p_args->data)&0xFF);
+            uart_fsm_process(data&0xFF);
             break;
         case UART_EVENT_ERR_PARITY:
             break;
@@ -443,21 +446,96 @@ void  uart_ble_flash_ready_for_data(void)
 void uart_ble_printf(const char *format, ...)
 {
 
+    int written;
+    char print_buffer[PRINTF_SZ];
 
-        int written;
-        char print_buffer[PRINTF_SZ];
+    xSemaphoreTake(s_uart_write_mutex, (TickType_t ) 10 );
 
-        xSemaphoreTake(s_uart_write_mutex, (TickType_t ) 10 );
+    va_list arg;
+    va_start(arg, format);
 
-        va_list arg;
-        va_start(arg, format);
-
-        written = vsprintf(print_buffer, format, arg);
-        va_end(arg);
-        R_SCI_UART_Write (&g_uart0_ctrl, (uint8_t *)print_buffer, (uint32_t)written);
+    written = vsprintf(print_buffer, format, arg);
+    va_end(arg);
+    R_SCI_UART_Write (&g_uart0_ctrl, (uint8_t *)print_buffer, (uint32_t)written);
 
 
-        xSemaphoreGive( s_uart_write_mutex );
+    xSemaphoreGive( s_uart_write_mutex );
 
+}
+
+void uart_ble_sci_uart_rxi_isr(void)
+{
+
+    /* Save context if RTOS is used */
+    FSP_CONTEXT_SAVE
+
+    IRQn_Type irq = R_FSP_CurrentIrqGet();
+
+    /* Clear pending IRQ to make sure it doesn't fire again after exiting */
+    R_BSP_IrqStatusClear(irq);
+
+    /* Recover ISR context saved in open. */
+    sci_uart_instance_ctrl_t * p_ctrl = (sci_uart_instance_ctrl_t *) R_FSP_IsrContextGet(irq);
+
+    uint32_t data;
+    do
+    {
+        if ((p_ctrl->fifo_depth > 0U))
+        {
+            if (p_ctrl->p_reg->FDR_b.R > 0U)
+            {
+                data = p_ctrl->p_reg->FRDRHL & FRDR_TDAT_MASK_9BITS;
+            }
+            else
+            {
+                break;
+            }
+        }
+        else if (2U == p_ctrl->data_bytes)
+        {
+            data = p_ctrl->p_reg->RDRHL & FRDR_TDAT_MASK_9BITS;
+        }
+        else
+        {
+            data = p_ctrl->p_reg->RDR;
+        }
+
+        if (0 == p_ctrl->rx_dest_bytes)
+        {
+            /* If a callback was provided, call it with the argument */
+            if (NULL != p_ctrl->p_callback)
+            {
+                /* Call user callback with the data. */
+                uart_dsps_cb(UART_EVENT_RX_CHAR, data);
+            }
+        }
+        else
+        {
+            memcpy((void *) p_ctrl->p_rx_dest, &data, p_ctrl->data_bytes);
+            p_ctrl->p_rx_dest     += p_ctrl->data_bytes;
+            p_ctrl->rx_dest_bytes -= p_ctrl->data_bytes;
+
+            if (0 == p_ctrl->rx_dest_bytes)
+            {
+                    uart_dsps_cb(UART_EVENT_RX_COMPLETE, 0U);
+            }
+        }
+
+    } while ((p_ctrl->fifo_depth > 0U) && ((p_ctrl->p_reg->FDR_b.R) > 0U));
+
+    if (p_ctrl->fifo_depth > 0U)
+    {
+        p_ctrl->p_reg->SSR_FIFO = (uint8_t) ~(SCI_UART_SSR_FIFO_DR_RDF);
+    }
+
+
+
+    /* Restore context if RTOS is used */
+    FSP_CONTEXT_RESTORE
+
+}
+
+void uart_cb_empty(uart_callback_args_t *p_args)
+{
 
 }

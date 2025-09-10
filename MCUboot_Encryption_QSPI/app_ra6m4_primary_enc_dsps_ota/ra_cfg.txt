@@ -393,6 +393,7 @@ FSP Configuration
       XCOUT 17 CGC0_XCOUT - - - - - - - - IO "Read only" - 
     
   User Events
+    SCI0 RXI (Receive data full): uart_ble_sci_uart_rxi_isr
     
   User Event Links
     
@@ -559,7 +560,7 @@ FSP Configuration
       Extra: RS-485: DE Pin Polarity: Active High
       Extra: RS-485: DE Port Number: Disabled
       Extra: RS-485: DE Pin Number: Disabled
-      Interrupts: Callback: uart_dsps_cb
+      Interrupts: Callback: uart_cb_empty
       Interrupts: Receive Interrupt Priority: Priority 12
       Interrupts: Transmit Data Empty Interrupt Priority: Priority 12
       Interrupts: Transmit End Interrupt Priority: Priority 12

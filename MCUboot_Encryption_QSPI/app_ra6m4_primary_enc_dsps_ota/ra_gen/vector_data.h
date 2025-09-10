@@ -9,7 +9,7 @@
 #define VECTOR_DATA_IRQ_COUNT    (4)
 #endif
 /* ISR prototypes */
-void sci_uart_rxi_isr(void);
+void uart_ble_sci_uart_rxi_isr(void);
 void sci_uart_txi_isr(void);
 void sci_uart_tei_isr(void);
 void sci_uart_eri_isr(void);
