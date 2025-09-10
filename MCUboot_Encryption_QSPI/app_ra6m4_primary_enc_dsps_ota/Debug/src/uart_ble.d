@@ -1,5 +1,5 @@
-src/uart_printf.o: ../src/uart_printf.c ../src/uart_printf.h \
- C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/hal_data.h \
+src/uart_ble.o: ../src/uart_ble.c \
+ C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/dsps_downloader_thread.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/bsp_api.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/fsp_common_api.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/fsp_version.h \
@@ -46,7 +46,6 @@ src/uart_printf.o: ../src/uart_printf.c ../src/uart_printf.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/src/bsp/mcu/all/bsp_compiler_support.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/src/bsp/mcu/all/bsp_delay.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/src/bsp/mcu/all/bsp_mcu_api.h \
- C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/common_data.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/FreeRTOS.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_cfg/aws/FreeRTOSConfig.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/projdefs.h \
@@ -56,10 +55,13 @@ src/uart_printf.o: ../src/uart_printf.c ../src/uart_printf.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/mpu_wrappers.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/projdefs.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/mpu_wrappers.h \
+ C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/task.h \
+ C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/list.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/semphr.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/queue.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/task.h \
- C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/list.h \
+ C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/hal_data.h \
+ C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/common_data.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/queue.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/instances/r_ioport.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/r_ioport_api.h \
@@ -70,14 +72,11 @@ src/uart_printf.o: ../src/uart_printf.c ../src/uart_printf.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/r_uart_api.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/r_transfer_api.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_cfg/fsp_cfg/r_sci_uart_cfg.h \
- C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/dsps_downloader_thread.h \
- C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/task.h \
- C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/hal_data.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/instances/r_qspi.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_cfg/driver/r_qspi_cfg.h \
- C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/r_spi_flash_api.h
-../src/uart_printf.h:
-C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/hal_data.h:
+ C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/r_spi_flash_api.h \
+ ../src/uart_ble.h ../src/ring_buffer.h ../src/header.h ../src/qspi_ep.h
+C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/dsps_downloader_thread.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/bsp_api.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/fsp_common_api.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/fsp_version.h:
@@ -124,7 +123,6 @@ C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_ds
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/src/bsp/mcu/all/bsp_compiler_support.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/src/bsp/mcu/all/bsp_delay.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/src/bsp/mcu/all/bsp_mcu_api.h:
-C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/common_data.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/FreeRTOS.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_cfg/aws/FreeRTOSConfig.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/projdefs.h:
@@ -134,10 +132,13 @@ C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_ds
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/mpu_wrappers.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/projdefs.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/mpu_wrappers.h:
+C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/task.h:
+C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/list.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/semphr.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/queue.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/task.h:
-C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/list.h:
+C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/hal_data.h:
+C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/common_data.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/queue.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/instances/r_ioport.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/r_ioport_api.h:
@@ -148,9 +149,10 @@ C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_ds
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/r_uart_api.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/r_transfer_api.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_cfg/fsp_cfg/r_sci_uart_cfg.h:
-C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/dsps_downloader_thread.h:
-C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/aws/FreeRTOS/FreeRTOS/Source/include/task.h:
-C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/hal_data.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/instances/r_qspi.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_cfg/driver/r_qspi_cfg.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/r_spi_flash_api.h:
+../src/uart_ble.h:
+../src/ring_buffer.h:
+../src/header.h:
+../src/qspi_ep.h:

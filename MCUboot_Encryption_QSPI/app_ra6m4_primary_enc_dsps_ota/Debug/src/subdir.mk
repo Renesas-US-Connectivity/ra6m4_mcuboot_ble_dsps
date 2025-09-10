@@ -9,7 +9,7 @@ C_SRCS += \
 ../src/hal_entry.c \
 ../src/qspi_operations.c \
 ../src/ring_buffer.c \
-../src/uart_printf.c 
+../src/uart_ble.c 
 
 C_DEPS += \
 ./src/blinky_thread_entry.d \
@@ -17,7 +17,7 @@ C_DEPS += \
 ./src/hal_entry.d \
 ./src/qspi_operations.d \
 ./src/ring_buffer.d \
-./src/uart_printf.d 
+./src/uart_ble.d 
 
 OBJS += \
 ./src/blinky_thread_entry.o \
@@ -25,7 +25,7 @@ OBJS += \
 ./src/hal_entry.o \
 ./src/qspi_operations.o \
 ./src/ring_buffer.o \
-./src/uart_printf.o 
+./src/uart_ble.o 
 
 SREC += \
 app_ra6m4_primary_enc_dsps_ota.srec 

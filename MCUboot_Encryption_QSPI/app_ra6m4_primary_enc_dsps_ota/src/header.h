@@ -42,4 +42,19 @@
 #define RING_BUFFER_LW_MARK         (RING_BUFFER_SIZE/4)
 
 
+#define OS_TASK_NOTIFY_FROM_ISR(task, value, action) \
+        ({ \
+                BaseType_t need_switch, ret; \
+                ret = xTaskNotifyFromISR(task, value, action, &need_switch); \
+                portEND_SWITCHING_ISR(need_switch); \
+                ret; \
+        })
+
+#define OS_TASK_NOTIFY(task, value, action) xTaskNotify((task), (value), (action))
+
+#define NOTIF_START_ERASE           (1 << 0)
+#define NOTIF_FLASH_WRITE_READY     (1 << 1)
+#define NOTIF_FLASH_WRITE_LAST      (1 << 2)
+
+
 #endif /* HEADER_H_ */

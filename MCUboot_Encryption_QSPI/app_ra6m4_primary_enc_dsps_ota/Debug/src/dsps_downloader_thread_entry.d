@@ -75,8 +75,8 @@ src/dsps_downloader_thread_entry.o: ../src/dsps_downloader_thread_entry.c \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/instances/r_qspi.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_cfg/driver/r_qspi_cfg.h \
  C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/r_spi_flash_api.h \
- ../src/ring_buffer.h ../src/header.h ../src/qspi_ep.h \
- ../src/uart_printf.h ../src/qspi_operations.h
+ ../src/ring_buffer.h ../src/header.h ../src/qspi_ep.h ../src/uart_ble.h \
+ ../src/qspi_operations.h
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra_gen/dsps_downloader_thread.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/bsp_api.h:
 C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_dsps_ota/ra/fsp/inc/api/fsp_common_api.h:
@@ -156,5 +156,5 @@ C:/repos/ra6m4_mcuboot_ble_dsps/MCUboot_Encryption_QSPI/app_ra6m4_primary_enc_ds
 ../src/ring_buffer.h:
 ../src/header.h:
 ../src/qspi_ep.h:
-../src/uart_printf.h:
+../src/uart_ble.h:
 ../src/qspi_operations.h:
