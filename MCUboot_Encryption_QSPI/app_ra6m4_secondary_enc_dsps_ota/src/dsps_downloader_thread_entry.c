@@ -12,9 +12,8 @@
 #include "ring_buffer.h"
 #include "header.h"
 #include "uart_ble.h"
-/* DSPS Downloader entry function */
-/* pvParameters contains TaskHandle_t */
 #include "qspi_operations.h"
+
 
 TaskHandle_t s_dsps_downloader_task;
 static uint8_t s_flash_write_buffer[FLASH_PAGE_PROGRAMMING_SIZE];

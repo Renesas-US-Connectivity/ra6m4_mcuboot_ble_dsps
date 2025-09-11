@@ -101,7 +101,7 @@ all: ra_mcuboot_ra6m4_swap_enc_qspi.elf secondary-outputs
 
 # Tool invocations
 ra_mcuboot_ra6m4_swap_enc_qspi.elf: $(OBJS) $(USER_OBJS) $(LINKER_SCRIPT)
-	$(file > ra_mcuboot_ra6m4_swap_enc_qspi.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -gdwarf-4 -T "fsp.ld" -Xlinker --gc-sections -L "C:\\repos\\Ra6m4_dsps_OTA\\MCUboot_Encryption_QSPI\\ra_mcuboot_ra6m4_swap_enc_qspi/script" -Wl,-Map,"ra_mcuboot_ra6m4_swap_enc_qspi.map" --specs=nano.specs --specs=rdimon.specs -o "ra_mcuboot_ra6m4_swap_enc_qspi.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
+	$(file > ra_mcuboot_ra6m4_swap_enc_qspi.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -gdwarf-4 -T "fsp.ld" -Xlinker --gc-sections -L "C:\\repos\\ra6m4_mcuboot_ble_dsps\\MCUboot_Encryption_QSPI\\ra_mcuboot_ra6m4_swap_enc_qspi/script" -Wl,-Map,"ra_mcuboot_ra6m4_swap_enc_qspi.map" --specs=nano.specs --specs=rdimon.specs -o "ra_mcuboot_ra6m4_swap_enc_qspi.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
 	@echo Building target: $@ && arm-none-eabi-gcc @"ra_mcuboot_ra6m4_swap_enc_qspi.elf.in"
 ra_mcuboot_ra6m4_swap_enc_qspi.srec: ra_mcuboot_ra6m4_swap_enc_qspi.elf
 	arm-none-eabi-objcopy -O srec "ra_mcuboot_ra6m4_swap_enc_qspi.elf"  "ra_mcuboot_ra6m4_swap_enc_qspi.srec"

@@ -396,6 +396,8 @@ FSP Configuration
     
   User Event Links
     
+  Linker Section Mappings
+    
   Module "I/O Port (r_ioport)"
     Parameter Checking: Default (BSP)
     
@@ -424,7 +426,7 @@ FSP Configuration
     Flash Layout: TrustZone: Image 2 Header Size (Bytes): 0x200
     Signing and Encryption Options: Boot Record: 
     Signing and Encryption Options: TrustZone: Boot Record (Image 2): 
-    Signing and Encryption Options: Custom:  --pad
+    Signing and Encryption Options: Custom:  --pad --confirm
     Signing and Encryption Options: TrustZone: Custom (Image 2):  --confirm
     Signing and Encryption Options: Python: python
     Signing and Encryption Options: Encryption Scheme: ECIES-P256
