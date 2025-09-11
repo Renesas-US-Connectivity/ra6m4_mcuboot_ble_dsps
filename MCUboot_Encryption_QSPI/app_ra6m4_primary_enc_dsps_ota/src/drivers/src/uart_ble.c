@@ -131,12 +131,9 @@ static void rb_hwmk_cb(ring_buffer_t *rb, void *context)
  *
  * - **UART_STATE_WAIT_FOR_LENGTH**
  *   After detecting the header, the FSM receives a 32-bit length field,
- *   which specifies the total image download size.
+ *   which specifies the total image download size. Once the length is received
+ *   the driver notifies the main task to start an erase.
  *
- * - **UART_STATE_ERASING_BANK**
- *   The FSM begins erasing the target flash bank. During this time, incoming
- *   UART data is buffered into a ring buffer, ensuring no data is lost
- *   while flash erase operations are in progress.
  *
  * - **UART_STATE_PROGRAMMING_BANK**
  *   The FSM continues filling the ring buffer and pushes buffered data to the
@@ -187,15 +184,9 @@ static void uart_fsm_process(uint8_t data)
                 memcpy(&s_uart_fsm.payload_length, s_uart_fsm.temp_header_payload, sizeof(s_uart_fsm.payload_length));
                 s_uart_fsm.payload_length = swap_endianness_uint32(s_uart_fsm.payload_length);
                 s_uart_fsm.payload_index = 0;
-                s_uart_fsm.state = UART_STATE_ERASING_BANK;
+                s_uart_fsm.state = UART_STATE_PROGRAMMING_BANK;
                 OS_TASK_NOTIFY_FROM_ISR(s_main_dsps_task, NOTIF_START_ERASE ,eSetBits);
             }
-            break;
-        case UART_STATE_ERASING_BANK:
-            //TODO:  Could be combined into next state for clarity.
-            s_uart_fsm.payload_index++;
-            ring_buffer_put_isr(&s_uart_fsm.image_ring_buffer, &data, sizeof(data));
-            ring_buffer_check_callbacks(&s_uart_fsm.image_ring_buffer);
             break;
         case UART_STATE_PROGRAMMING_BANK:
             s_uart_fsm.payload_index++;
