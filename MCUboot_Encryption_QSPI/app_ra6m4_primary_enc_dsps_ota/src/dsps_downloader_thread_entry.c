@@ -130,7 +130,7 @@ void dsps_downloader_thread_entry(void *pvParameters)
         }
         if(notif & NOTIF_FLASH_WRITE_LAST)
         {
-
+            //Last page write, uart driver is aware of length and this is smaller than one page size (potentially).
             nvm_write_last_page();
             R_BSP_SoftwareDelay(10, BSP_DELAY_UNITS_MILLISECONDS);
 

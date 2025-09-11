@@ -64,4 +64,6 @@ ra/fsp/src/r_sci_uart \
 ra/fsp/src/rm_freertos_port \
 ra_gen \
 src \
+src/common/src \
+src/drivers/src \
 

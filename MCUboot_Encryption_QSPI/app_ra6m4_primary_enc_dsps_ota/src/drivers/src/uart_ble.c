@@ -56,7 +56,31 @@ static uint32_t swap_endianness_uint32(uint32_t value) {
            ((value << 24) & 0xFF000000);
 }
 
-
+/**
+ * @brief Configure UART flow control setting.
+ *
+ * Disables UART interrupts temporarily to allow the FIFO high-water mark (HWMK)
+ * to be reached. Once the HWMK is hit, the hardware flow control lines (e.g., RTS/CTS)
+ * can be asserted, ensuring backpressure is applied correctly to the remote peer.
+ *
+ * @param[in] flow Flow control setting to apply. Must be a valid
+ *                 value of @ref uart_flow_setting_t.
+ *
+ * @return None.
+ *
+ * @note This is a static function and intended for use only within
+ *       this source file. It is typically used when fine control over
+ *       FIFO thresholds and hardware flow assertion is required.
+ *
+ * @par Usage Example:
+ * @code
+ * // Prepare UART to assert RTS when FIFO HWMK is reached
+ * uart_flow_set(UART_FLOW_RTS_CTS);
+ *
+ * // Disable flow control
+ * uart_flow_set(UART_FLOW_NONE);
+ * @endcode
+ */
 static void uart_flow_set(uart_flow_setting_t flow)
 {
     if(flow == UART_FLOW_STOP)
@@ -86,6 +110,41 @@ static void rb_hwmk_cb(ring_buffer_t *rb, void *context)
 
 }
 
+/**
+ * @brief Process a received byte in the UART finite state machine (FSM).
+ *
+ * This function advances the UART FSM by consuming one byte of input data
+ * and executing logic based on the current state. It is responsible for
+ * handling the image download protocol over UART, managing transitions
+ * from header detection through data buffering and programming.
+ *
+ * @param[in] data One byte of received UART data to process.
+ *
+ * @return None.
+ *
+ * @note This is a static function intended for internal use only.
+ *
+ * @par UART FSM State Machine:
+ * - **UART_STATE_WAIT_FOR_HEADER**
+ *   The FSM waits for the 1-byte header that signals the start of an image
+ *   transfer.
+ *
+ * - **UART_STATE_WAIT_FOR_LENGTH**
+ *   After detecting the header, the FSM receives a 32-bit length field,
+ *   which specifies the total image download size.
+ *
+ * - **UART_STATE_ERASING_BANK**
+ *   The FSM begins erasing the target flash bank. During this time, incoming
+ *   UART data is buffered into a ring buffer, ensuring no data is lost
+ *   while flash erase operations are in progress.
+ *
+ * - **UART_STATE_PROGRAMMING_BANK**
+ *   The FSM continues filling the ring buffer and pushes buffered data to the
+ *   application for flash programming. This state continues until the full
+ *   image has been received and written.
+ *
+ * @endcode
+ */
 
 static void uart_fsm_process(uint8_t data)
 {
@@ -133,6 +192,7 @@ static void uart_fsm_process(uint8_t data)
             }
             break;
         case UART_STATE_ERASING_BANK:
+            //TODO:  Could be combined into next state for clarity.
             s_uart_fsm.payload_index++;
             ring_buffer_put_isr(&s_uart_fsm.image_ring_buffer, &data, sizeof(data));
             ring_buffer_check_callbacks(&s_uart_fsm.image_ring_buffer);
@@ -463,6 +523,10 @@ void uart_ble_printf(const char *format, ...)
 
 }
 
+/* TODO: The vector table is currently replaced with this user ISR.
+ *       This ISR should be modified to properly fetch data from the UART FIFO
+ *       and manage hardware flow control here, rather than disabling interrupts.
+ */
 void uart_ble_sci_uart_rxi_isr(void)
 {
 
@@ -537,5 +601,5 @@ void uart_ble_sci_uart_rxi_isr(void)
 
 void uart_cb_empty(uart_callback_args_t *p_args)
 {
-
+    FSP_PARAMETER_NOT_USED(p_args);
 }
