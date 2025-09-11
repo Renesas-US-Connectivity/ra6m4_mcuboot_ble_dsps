@@ -22,7 +22,6 @@
 typedef enum {
     UART_STATE_WAIT_FOR_HEADER,
     UART_STATE_WAIT_FOR_LENGTH,
-    UART_STATE_ERASING_BANK,
     UART_STATE_PROGRAMMING_BANK
 } uart_state_t;
 
@@ -461,7 +460,6 @@ size_t  uart_ble_get_data_available(void)
  */
 void  uart_ble_flash_ready_for_data(void)
 {
-    s_uart_fsm.state = UART_STATE_PROGRAMMING_BANK;
 
     if(s_uart_fsm.hwmk_triggered)
     {
