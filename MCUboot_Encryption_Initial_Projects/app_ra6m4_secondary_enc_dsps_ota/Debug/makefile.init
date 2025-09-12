@@ -1,0 +1,14 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+arg1 = $(1)
+export PATH=C:\Program Files (x86)\Arm GNU Toolchain arm-none-eabi\13.2 Rel1\bin\;C:\Users\jonku\AppData\Local\Programs\Renesas\e2_studio\eclipse\plugins\com.renesas.ide.exttools.busybox.win32.x86_64_1.3.6.v20230615-0931\bin\;C:\Users\jonku\AppData\Local\Programs\Renesas\e2_studio\eclipse\plugins\com.renesas.ide.exttools.gnumake.win32.x86_64_4.3.1.v20240909-0854\mk\;C:\Users\jonku\AppData\Local\Programs\Renesas\e2_studio\eclipse\plugins\com.renesas.ide.exttools.scandep.win32.x86_64_1.0.0.v20230915-1033\sd\;C:/Users/jonku/AppData/Local/Programs/Renesas/e2_studio/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.6.v20250130-0529/jre/bin/server;C:/Users/jonku/AppData/Local/Programs/Renesas/e2_studio/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.6.v20250130-0529/jre/bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Users\jonku\AppData\Local\Programs\Python\Python312;C:\Users\jonku\AppData\Local\Programs\Python\Python312\Scripts;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\jonku\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Git\cmd;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\dotnet\;C:\Program Files (x86)\GNU Tools ARM Embedded\7 2017-q4-major\bin;C:\Users\jonku\AppData\Local\Programs\Python\Python312;C:\Users\jonku\AppData\Local\Programs\Python\Launcher\;C:\Users\jonku\AppData\Local\Microsoft\WindowsApps;C:\Users\jonku\.dotnet\tools;C:\Users\jonku\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\jonku\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\jonku\AppData\Local\Programs\Renesas\e2_studio\eclipse
+export TCINSTALL=C:\Program Files (x86)\Arm GNU Toolchain arm-none-eabi\13.2 Rel1$(call arg1,\)
+export MCUBOOT_IMAGE_ENC_KEY=C:\repos\ra6m4_mcuboot_ble_dsps\MCUboot_Encryption_QSPI\ra_mcuboot_ra6m4_swap_enc_qspi/ra/mcu-tools/MCUboot/enc-ec256-pub.pem
+export CWD=$(CURDIR)
+export MCUBOOT_IMAGE_VERSION=1.0.1
+export MCUBOOT_IMAGE_SIGNING_KEY=C:\repos\ra6m4_mcuboot_ble_dsps\MCUboot_Encryption_QSPI\ra_mcuboot_ra6m4_swap_enc_qspi/ra/mcu-tools/MCUboot/root-ec-p256.pem
+export TC_VERSION=13.2.1.arm-13-7
+export PWD=$(CURDIR)
+export GCC_VERSION=13.2.1
