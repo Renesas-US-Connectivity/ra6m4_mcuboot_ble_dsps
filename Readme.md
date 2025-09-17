@@ -4,7 +4,7 @@ This project demonstrates how to perform secure and high-speed firmware updates 
 
 ---
 
-## 🔍 Overview
+## Overview
 
 This implementation:
 - Leverages MCUBoot as the secure bootloader
@@ -16,12 +16,12 @@ This implementation:
 
 ## 📚 References
 
-- **MCUBoot App Note**: [RA6 MCU Advanced Secure Bootloader Design using MCUBoot and Code Flash Dual-Bank Mode](https://www.renesas.com/en/document/apn/ra6-mcu-advanced-secure-bootloader-design-using-mcuboot-and-code-flash-dualbank-mode?r=1333976)
+- **MCUBoot App Note**: [RA6 MCU Advanced Secure Bootloader Design using MCUBoot and Code Flash Dual-Bank Mode](https://www.renesas.com/en/document/apn/ra6-booting-encrypted-image-using-mcuboot-and-qspi)
 - **Dialog DSPS SDK**: [Serial Port Service (SPS)](https://www.renesas.com/en/software-tool/serial-port-service-sps)
 
 ---
 
-## 🧰 Required Hardware
+## Required Hardware
 
 - **RA6M4 Evaluation Kit**  
   [EK-RA6M4 Product Page](https://www.renesas.com/en/design-resources/boards-kits/ek-ra6m4#design_development)
@@ -32,11 +32,11 @@ This implementation:
 
 ---
 
-## 🗂️ Project Contents
+## Project Contents
 
 The repository includes:
 - Full **source code** for bootloader and demo applications
-- Pre-built **binaries** located in the `artifacts/` directory
+- Pre-built **binaries** located in the release packages
 - QSPI-encoded and internal flash demo images
 
 ---
@@ -53,7 +53,7 @@ The repository includes:
 | P101      | P015        |
 | P800      | P100        |
 
-### 🧾 DA14592 DIP Switches
+### DA14592 DIP Switches
 
 - On the DA14592 board, locate **S1** (center-left).
 - Set the **first four DIP switches to OFF** (toward the bottom edge).
@@ -62,7 +62,7 @@ The repository includes:
 
 ---
 
-## 🧪 DA14592 DSPS Firmware Programming
+## DA14592 DSPS Firmware Programming
 
 1. Connect the DA14592 motherboard via USB.
 2. Launch **J-Link GDB Server**:
@@ -72,11 +72,11 @@ The repository includes:
 
      ![GDB Server](resources/gdbserver.PNG)
 
-3. Open a terminal in the `artifacts/DA14592/` directory and run:
+3. Obtain cli_programmer and sps_peripheral_da14592.bin and Open a terminal in the directory and run:
 
     ```bash
     ./cli_programmer.exe gdbserver chip_erase_eflash
-    ./cli_programmer.exe gdbserver write_eflash 0 sps_peripheral_2M_PHY_15_MS.bin
+    ./cli_programmer.exe gdbserver write_eflash 0 sps_peripheral_da14592.bin
     ```
 
 4. Press the **green reset button** on the DA14592 daughtercard.
@@ -85,7 +85,7 @@ The repository includes:
 
 ---
 
-## 🧩 RA6M4 Initial Image Programming
+## RA6M4 Initial Image Programming
 
 1. Open **J-Flash Lite**:
    - Device: `R7A6M4AF`
@@ -94,8 +94,9 @@ The repository includes:
 
 2. Select **Erase Chip**.
 
-3. Use the file browser (`...`) to select your image:
-   - For QSPI: `artifacts/QSPI_Enc/xxx_demo_initial_image_qspi.hex`
+3. Use the file browser (`...`) to select your image obtained from release artifacts:
+   - For QSPI: `app_ra6m4_primary_enc_qspi_dsps_ota_w_mcuboot.hex`
+   - For Dual Bank Internal - `app_ra6m4_primary_dsps_ota_w_mcboot.hex`
 
 4. Click **Program Device**.
 
@@ -110,7 +111,7 @@ The repository includes:
 1. **Add the update image to the app**:
    - If using iOS:
      - Open iTunes → File Sharing
-     - Select **SmartConsole** and upload the binary (e.g., `app_secondary_image_qspi_enc.bin`)
+     - Select **SmartConsole** and upload the binary (e.g., `app_ra6m4_secondary_enc_qspi_dsps_ota.bin`, `app_ra6m4_secondary_dsps_ota.bin` )
 
 2. In the app:
    - Connect to `Renesas SPS Demo`
@@ -131,32 +132,43 @@ The repository includes:
 
 ---
 
-## ⚡ Performance
+## Performance
 
 | Configuration                  | Image Size | Transfer Time (iOS ≥ iPhone 11) |
 |-------------------------------|------------|-------------------------------|
 | Dual Bank (Internal Flash)    | ~460 KB    | ~7 seconds                    |
 | QSPI Encrypted (QSPI_Enc)     | ~918 KB    | ~23 seconds                   |
 
-> ⏱️ QSPI transfers are slower due to full-chip erase latency.
+> ⏱️ QSPI transfers are slower due to erase and write latency.
 
 ---
 
-## 📦 Artifacts
+## Artifacts
 
-All necessary binaries to run the demo are in the `artifacts/` folder:
+All necessary binaries to run the demo are artifacts tagged to release folder:
 
 ```
 artifacts/
 ├── DA14592/
-│   └── sps_peripheral_2M_PHY_15_MS.bin
+│   ├── sps_peripheral_da14592.bin
+│   └── cli_programmer
 ├── QSPI_Enc/
-│   ├── xxx_demo_initial_image_qspi.hex
-│   └── app_secondary_image_qspi_enc.bin
+│   ├── app_ra6m4_primary_enc_qspi_dsps_ota_w_mcuboot.hex
+│   └── app_ra6m4_secondary_enc_qspi_dsps_ota.bin
+├── Dual_Bank Internal/
+├   ├── app_ra6m4_primary_dsps_ota_w_mcboot.hex
+│   └── app_ra6m4_secondary_dsps_ota.bin
 └── ...
 ```
 
 You can run the demo without rebuilding from source.
+
+## Building the Sample Code
+
+To build the provided sample code in **e² studio**, please refer to the steps outlined in **MCUBoot Application Note – Section 3.2.2**.  
+That section provides the required setup for e² studio, including project import, build configurations, and toolchain settings.  
+
+Following the guidance in Section 3.2.2 ensures that the MCUBoot environment and the sample project are configured correctly for compilation and debugging.  
 
 ---
 
@@ -166,6 +178,3 @@ This project is provided under the **MIT License** unless otherwise noted.
 
 ---
 
-## ❓ Support
-
-For questions, bug reports, or contributions, please reach out to [your.team@email.com] or open an issue in this repository.
